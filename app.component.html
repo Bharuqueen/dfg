@@ -1,0 +1,59 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <div class="container">
+     
+      <h2> Show ALL Employee</h2>
+      <form>
+      <table class="table">
+        <tbody>
+          <tr> <td>ID</td><td> <input type="number"  #id></td></tr>
+          <tr> <td>Name</td><td> <input type="text"  #name></td></tr>
+          <tr> <td>Salary</td><td> <input type="number"  #salary></td></tr>
+          <tr> <td>Department</td><td> <input type="text" #department></td></tr>
+        </tbody>
+      </table>
+          <tr> <button (click)= add(id.value,name.value,salary.value,department.value) > Add </button></tr>
+        </form>
+    </div>
+ 
+
+        <table class="table" *ngIf="employee" border="1" >
+      
+            <tr>
+              <th> ID </th>
+              <th> Name </th>
+              <th> Salary</th>
+              <th> Department</th>
+              <th colspan="2">Action</th>
+            </tr>
+           
+            
+          <tbody>
+            <tr *ngFor= "let emp of employee let  i=index">
+              <td> {{ emp.ID }} </td>
+              <td> {{ emp.Name }} </td>
+              <td> {{ emp.Salary }} </td>
+              <td> {{ emp.Department }} </td>
+              <td> <button type= "button" (click)= "delete(i)"> DELETE </button>
+                <td> <button type= "button" (click)= update(i,eid,ename,esalary,edepartment)> UPDATE </button>        
+            </tr>
+            </tbody>
+            </table>
+            
+              <h1> Update Employee</h1>
+              <table class="table">
+                <tbody>
+                  <tr> <td>Id</td><td> <input type="number"  #eid></td></tr>
+                  <tr> <td>NAME</td><td> <input type="text"  #ename></td></tr>
+                  <tr> <td>SALARY</td><td> <input type="number"  #esalary></td></tr>
+                  <tr> <td>DEPARTMENT</td><td> <input type="text" #edepartment></td></tr>
+                </tbody>
+              </table>
+                  <tr> <button (click)= updateclick(eid,ename,esalary,edepartment) > updateemployee </button></tr>
+             
+    </body>
+  
+</html>
